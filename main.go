@@ -81,12 +81,12 @@ func run() []error {
 			continue
 		}
 
-		// We attempt to write to the file with the same permissions it already has.
-		if err := ioutil.WriteFile(fileAbsName, formatted, fileInfo.Mode().Perm()); err != nil {
-			errs = append(errs, err)
-			continue
-		}
 		if !bytes.Equal(content, formatted) {
+			// We attempt to write to the file with the same permissions it already has.
+			if err := ioutil.WriteFile(fileAbsName, formatted, fileInfo.Mode().Perm()); err != nil {
+				errs = append(errs, err)
+				continue
+			}
 			fmt.Println(fileRepoName)
 		}
 	}
