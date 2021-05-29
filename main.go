@@ -50,6 +50,10 @@ func run() []error {
 		return append(errs, err)
 	}
 
+	wrapErrorForFile := func(file string, err error) error {
+		return fmt.Errorf("%s: %v", file, err)
+	}
+
 	for fileRepoName, fileStatus := range status {
 		// We cannot stat a file that does not exist. We check this upfront.
 		if fileStatus.Staging == git.Deleted || fileStatus.Worktree == git.Deleted {
@@ -63,7 +67,7 @@ func run() []error {
 		// after the initial deletion check passes.
 		fileInfo, err := os.Stat(fileAbsName)
 		if err != nil {
-			errs = append(errs, err)
+			errs = append(errs, wrapErrorForFile(fileRepoName, err))
 			continue
 		}
 		if fileInfo.IsDir() || strings.HasPrefix(fileBaseName, ".") || !strings.HasSuffix(fileBaseName, ".go") {
@@ -72,19 +76,19 @@ func run() []error {
 
 		content, err := ioutil.ReadFile(fileAbsName)
 		if err != nil {
-			errs = append(errs, err)
+			errs = append(errs, wrapErrorForFile(fileRepoName, err))
 			continue
 		}
 		formatted, err := format.Source(content)
 		if err != nil {
-			errs = append(errs, err)
+			errs = append(errs, wrapErrorForFile(fileRepoName, err))
 			continue
 		}
 
 		if !bytes.Equal(content, formatted) {
 			// We attempt to write to the file with the same permissions it already has.
 			if err := ioutil.WriteFile(fileAbsName, formatted, fileInfo.Mode().Perm()); err != nil {
-				errs = append(errs, err)
+				errs = append(errs, wrapErrorForFile(fileRepoName, err))
 				continue
 			}
 			fmt.Println(fileRepoName)
