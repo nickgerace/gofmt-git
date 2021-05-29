@@ -70,6 +70,8 @@ func run() []error {
 			errs = append(errs, wrapErrorForFile(fileRepoName, err))
 			continue
 		}
+
+		// Logic from upstream "gofmt": https://github.com/golang/go/blob/79bda650410c8617f0ae20dc552c6d5b8f8dcfc8/src/cmd/gofmt/gofmt.go#L76-L80
 		if fileInfo.IsDir() || strings.HasPrefix(fileBaseName, ".") || !strings.HasSuffix(fileBaseName, ".go") {
 			continue
 		}
