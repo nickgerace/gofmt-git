@@ -29,9 +29,10 @@ func run() []error {
 		if _, err := os.Stat(filepath.Join(top, ".git")); err == nil {
 			break
 		}
+
 		parent := filepath.Dir(top)
 		if parent == top {
-			break
+			return append(errs, fmt.Errorf("did not find Git repository from filesystem root to %s", cwd))
 		}
 		top = parent
 	}
