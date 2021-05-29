@@ -14,8 +14,6 @@ import (
 	git "github.com/go-git/go-git/v5"
 )
 
-const VERSION = "0.0.0-dev"
-
 func run() []error {
 	var errors []error
 
@@ -96,7 +94,7 @@ func run() []error {
 
 func main() {
 	flag.Usage = func() {
-		fmt.Printf("gofmt-git %s (%s)\nhttps://github.com/nickgerace/gofmt-git\n", VERSION, runtime.Version())
+		fmt.Printf("gofmt-git 0.0.0-dev (%s)\nhttps://github.com/nickgerace/gofmt-git\n", runtime.Version())
 		flag.PrintDefaults()
 	}
 	flag.Parse()

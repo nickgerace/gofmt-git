@@ -1,6 +1,8 @@
 # gofmt-git
 
 [![tag](https://img.shields.io/github/v/tag/nickgerace/gofmt-git?label=version&style=flat-square)](https://github.com/nickgerace/gofmt-git/releases/latest)
+[![go report card](https://goreportcard.com/badge/github.com/nickgerace/gofmt-git?style=flat-square)](https://goreportcard.com/report/github.com/nickgerace/gofmt-git)
+[![go version](https://img.shields.io/github/go-mod/go-version/nickgerace/gofmt-git?style=flat-square)](./go.mod)
 [![license](https://img.shields.io/github/license/nickgerace/gofmt-git?style=flat-square)](./LICENSE)
 
 Want to avoid formatting unchanged Go files?
