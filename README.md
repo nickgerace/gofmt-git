@@ -21,6 +21,20 @@ pkg/cmd/run.go
 pkg/cmd.go
 ```
 
+## Installation
+
+Currently, the recommended method to obtain (and update) `gofmt-git` is to execute the following:
+
+```sh
+go get -u github.com/nickgerace/gofmt-git
+```
+
+If you would like upgrade it via automation, you can use the above command, or update all downloaded Go modules by executing the following:
+
+```sh
+go get -u all
+```
+
 ## Limitations
 
 This tool runs with the default settings of `go fmt` (e.g. `go fmt <filename>` or `go fmt ./...`).
@@ -34,7 +48,3 @@ Please [file an issue](https://github.com/nickgerace/gofmt-git/issues) if your p
 ## Code of Conduct
 
 This repository follows and enforces the Go programming language's [Code of Conduct](https://golang.org/conduct).
-
-## Maintainers
-
-- [@nickgerace](https://nickgerace.dev)
