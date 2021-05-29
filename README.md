@@ -35,6 +35,10 @@ If you would like upgrade it via automation, you can use the above command, or u
 go get -u all
 ```
 
+## Uninstallation
+
+Delete `gofmt-git` from your `GOBIN` directory.
+
 ## Limitations
 
 This tool runs with the default settings of `go fmt` (e.g. `go fmt <filename>` or `go fmt ./...`).
