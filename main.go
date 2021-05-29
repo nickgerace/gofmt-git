@@ -99,7 +99,7 @@ func main() {
 	}
 	flag.Parse()
 
-	if errs := run(); len(errs) > 0 {
+	if errs := run(); errs != nil {
 		for _, err := range errs {
 			fmt.Fprintln(os.Stderr, err)
 		}
