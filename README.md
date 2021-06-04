@@ -16,9 +16,9 @@ You can execute this within any directory inside of the repository.
  M pkg/cmd.go
 
 % gofmt-git
-main.go
-pkg/cmd/run.go
-pkg/cmd.go
+[+] main.go
+[+] pkg/cmd/run.go
+[=] pkg/cmd.go
 ```
 
 ## Installation
