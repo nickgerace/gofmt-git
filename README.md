@@ -1,3 +1,9 @@
+# DEPRECATION NOTICE
+
+This repository fills a niche role that `go fmt ./...` occupies already.
+It was intended to save time in large repositories, but it's impact is minimal.
+Thus, it has been deprecated.
+
 # gofmt-git
 
 [![tag](https://img.shields.io/github/v/tag/nickgerace/gofmt-git?label=version&style=flat-square)](https://github.com/nickgerace/gofmt-git/releases/latest)
